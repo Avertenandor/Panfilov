@@ -552,6 +552,27 @@ body::before {
     overflow: hidden;
 }
 
+/* Ripple эффект для кнопок */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+    width: var(--ripple-size);
+    height: var(--ripple-size);
+    left: var(--ripple-x);
+    top: var(--ripple-y);
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
 .telegram-btn-large {
     padding: 16px 32px;
     font-size: 1.1rem;
@@ -586,6 +607,8 @@ body::before {
     box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
     min-width: 280px;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .mvd-btn:hover {
@@ -812,6 +835,35 @@ body::before {
     }
 }
 
+/* Стили для уведомлений */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #dc3545, #a71e2a);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 10000;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease-out;
+    font-weight: 600;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.notification.hide {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
 /* Адаптивность для модального окна */
 @media (max-width: 768px) {
     .modal-content {
@@ -830,6 +882,57 @@ body::before {
     .telegram-btn-large, .mvd-btn {
         min-width: auto;
         width: 100%;
+    }
+    
+    .notification {
+        right: 10px;
+        bottom: 10px;
+        max-width: calc(100vw - 40px);
+    }
+}
+
+/* Глитч эффект */
+.glitch {
+    position: relative;
+    animation: glitch 0.3s infinite;
+}
+
+@keyframes glitch {
+    0%, 100% {
+        text-shadow: 
+            0.05em 0 0 rgba(255, 0, 0, 0.75),
+            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+            0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    14% {
+        text-shadow: 
+            0.05em 0 0 rgba(255, 0, 0, 0.75),
+            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+            0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    15% {
+        text-shadow: 
+            -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    49% {
+        text-shadow: 
+            -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    50% {
+        text-shadow: 
+            0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+            0.05em 0 0 rgba(0, 255, 0, 0.75),
+            0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    99% {
+        text-shadow: 
+            0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+            0.05em 0 0 rgba(0, 255, 0, 0.75),
+            0 -0.05em 0 rgba(0, 0, 255, 0.75);
     }
 }
 

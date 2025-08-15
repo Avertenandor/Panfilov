@@ -139,7 +139,7 @@
     
     <!-- Безопасность -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https:">
     <meta name="format-detection" content="telephone=no">
     
     <!-- Schema.org JSON-LD структурированные данные -->
@@ -517,7 +517,7 @@
                                 <p class="telegram-link-large">
                                     🔗 <strong>Чат пострадавших:</strong>
                                 </p>
-                                <button onclick="window.open('https://t.me/+BCX91JicBdMyYWU0', '_blank')" class="telegram-btn">
+                                <button class="telegram-btn" data-action="telegram-chat">
                                     <span class="btn-icon">💬</span>
                                     <span class="btn-text">Присоединиться к чату</span>
                                     <span class="btn-arrow">→</span>
@@ -583,12 +583,12 @@
                     </div>
                 </div>
                 <div class="cta-buttons">
-                    <button onclick="window.open('https://t.me/+BCX91JicBdMyYWU0', '_blank')" class="btn btn-primary telegram-btn-large">
+                    <button class="btn btn-primary telegram-btn-large" data-action="telegram-chat">
                         <span class="btn-icon">💬</span>
                         <span class="btn-text">Присоединиться к Telegram чату</span>
                         <span class="btn-arrow">→</span>
                     </button>
-                    <button onclick="openMVDModal()" class="btn btn-secondary mvd-btn">
+                    <button class="btn btn-secondary mvd-btn" data-action="open-mvd-modal">
                         <span class="btn-icon">⚖️</span>
                         <span class="btn-text">Подать заявление в МВД</span>
                         <span class="btn-arrow">→</span>
@@ -599,11 +599,11 @@
     </section>
 
     <!-- Модальное окно для МВД -->
-    <div id="mvdModal" class="modal" onclick="closeMVDModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
+    <div id="mvdModal" class="modal" data-action="close-modal-bg">
+        <div class="modal-content" data-action="stop-propagation">
             <div class="modal-header">
                 <h2>⚖️ Подача заявления в МВД</h2>
-                <button class="modal-close" onclick="closeMVDModal()">&times;</button>
+                <button class="modal-close" data-action="close-modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="modal-warning">
@@ -636,11 +636,11 @@
                     </div>
                 </div>
                 <div class="modal-actions">
-                    <button onclick="window.open('https://t.me/+BCX91JicBdMyYWU0', '_blank')" class="btn btn-primary modal-telegram-btn">
+                    <button class="btn btn-primary modal-telegram-btn" data-action="telegram-chat">
                         <span class="btn-icon">💬</span>
                         <span class="btn-text">Присоединиться к чату пострадавших</span>
                     </button>
-                    <button onclick="closeMVDModal()" class="btn btn-secondary modal-close-btn">
+                    <button class="btn btn-secondary modal-close-btn" data-action="close-modal">
                         <span class="btn-text">Понятно, жду готовых документов</span>
                     </button>
                 </div>

@@ -115,58 +115,26 @@ function shareWarning() {
 // Показ уведомления
 function showNotification(message) {
     const notification = document.createElement('div');
-    notification.className = 'notification';
+    notification.className = 'notification show';
     notification.textContent = message;
-    notification.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: var(--gradient-danger);
-        color: white;
-        padding: 15px 25px;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        z-index: 10000;
-        animation: slideInRight 0.3s ease-out;
-    `;
     
     document.body.appendChild(notification);
     
     setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.3s ease-out';
+        notification.classList.remove('show');
+        notification.classList.add('hide');
         setTimeout(() => {
-            document.body.removeChild(notification);
+            if (notification.parentNode) {
+                document.body.removeChild(notification);
+            }
         }, 300);
     }, 3000);
 }
 
-// Добавление CSS анимаций для уведомлений
+// Добавление CSS анимаций для уведомлений (теперь в CSS файле)
 function addNotificationStyles() {
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes slideOutRight {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
+    // Стили теперь в CSS файле, эта функция оставлена для совместимости
+    console.log('Notification styles loaded from CSS');
 }
 
 // Эффект печатающегося текста для заголовка
@@ -206,54 +174,8 @@ function addGlitchEffect() {
         });
     });
     
-    // Добавление CSS для глитч эффекта
-    const style = document.createElement('style');
-    style.textContent = `
-        .glitch {
-            position: relative;
-            animation: glitch 0.3s infinite;
-        }
-        
-        @keyframes glitch {
-            0%, 100% {
-                text-shadow: 
-                    0.05em 0 0 rgba(255, 0, 0, 0.75),
-                    -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-                    0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-            14% {
-                text-shadow: 
-                    0.05em 0 0 rgba(255, 0, 0, 0.75),
-                    -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-                    0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-            15% {
-                text-shadow: 
-                    -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-                    0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-                    -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-            49% {
-                text-shadow: 
-                    -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-                    0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-                    -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-            50% {
-                text-shadow: 
-                    0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-                    0.05em 0 0 rgba(0, 255, 0, 0.75),
-                    0 -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-            99% {
-                text-shadow: 
-                    0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-                    0.05em 0 0 rgba(0, 255, 0, 0.75),
-                    0 -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-        }
-    `;
-    document.head.appendChild(style);
+    // CSS для глитч эффекта теперь в основном CSS файле
+    console.log('Glitch effect initialized');
 }
 
 // Эффект мерцания для предупреждающего баннера
@@ -361,61 +283,23 @@ function enhanceButtons() {
             const x = e.clientX - rect.left - size / 2;
             const y = e.clientY - rect.top - size / 2;
             
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
+            // Используем CSS custom properties вместо inline стилей
             ripple.classList.add('ripple');
+            ripple.style.setProperty('--ripple-size', size + 'px');
+            ripple.style.setProperty('--ripple-x', x + 'px');
+            ripple.style.setProperty('--ripple-y', y + 'px');
             
             this.appendChild(ripple);
             
             setTimeout(() => {
-                ripple.remove();
+                if (ripple.parentNode) {
+                    ripple.remove();
+                }
             }, 600);
         });
-        
-        // Добавляем эффект loading при нажатии на Telegram кнопки
-        if (button.classList.contains('telegram-btn') || button.classList.contains('telegram-btn-large')) {
-            button.addEventListener('click', function() {
-                const icon = this.querySelector('.btn-icon');
-                const originalIcon = icon.textContent;
-                icon.textContent = '⏳';
-                
-                setTimeout(() => {
-                    icon.textContent = originalIcon;
-                }, 1000);
-            });
-        }
     });
     
-    // CSS для эффекта ripple
-    const style = document.createElement('style');
-    style.textContent = `
-        .telegram-btn, .telegram-btn-large, .mvd-btn {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(0);
-            animation: ripple-animation 0.6s linear;
-            pointer-events: none;
-        }
-        
-        @keyframes ripple-animation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-        
-        .btn-icon {
-            transition: all 0.3s ease;
-        }
-    `;
-    document.head.appendChild(style);
+    console.log('Button enhancements applied');
 }
 
 // Функция для улучшения анимации счетчиков в модальном окне
@@ -444,8 +328,66 @@ function animateModalStats() {
     }
 }
 
+// Универсальный обработчик событий без inline handlers
+function setupEventHandlers() {
+    // Обработка всех кнопок с data-action
+    document.addEventListener('click', (e) => {
+        const action = e.target.closest('[data-action]')?.getAttribute('data-action');
+        
+        switch(action) {
+            case 'telegram-chat':
+                e.preventDefault();
+                openTelegramChat(e.target);
+                break;
+            case 'open-mvd-modal':
+                e.preventDefault();
+                openMVDModal();
+                break;
+            case 'close-modal':
+                e.preventDefault();
+                closeMVDModal();
+                break;
+            case 'close-modal-bg':
+                if (e.target === e.currentTarget) {
+                    closeMVDModal();
+                }
+                break;
+            case 'stop-propagation':
+                e.stopPropagation();
+                break;
+        }
+    });
+    
+    // Закрытие модального окна по ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeMVDModal();
+        }
+    });
+}
+
+// Функция открытия Telegram чата с анимацией
+function openTelegramChat(button) {
+    // Добавляем loading эффект
+    const icon = button.querySelector('.btn-icon');
+    if (icon) {
+        const originalIcon = icon.textContent;
+        icon.textContent = '⏳';
+        
+        setTimeout(() => {
+            icon.textContent = originalIcon;
+        }, 1000);
+    }
+    
+    // Открываем чат
+    window.open('https://t.me/+BCX91JicBdMyYWU0', '_blank');
+}
+
 // Добавляем все в инициализацию
 document.addEventListener('DOMContentLoaded', () => {
+    // Сначала настраиваем обработчики событий
+    setupEventHandlers();
+    
     // Существующие функции...
     animateCounters();
     smoothScroll();
