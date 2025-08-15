@@ -415,6 +415,123 @@ body::before {
     font-style: italic;
 }
 
+/* Стили для сбора данных */
+.collection-info {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.collection-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--warning-yellow);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.collection-header {
+    margin-bottom: 30px;
+}
+
+.collection-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.collection-header h3 {
+    color: var(--warning-yellow);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.collection-description {
+    font-size: 1.2rem;
+    color: var(--gray-light);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.collection-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--danger-red);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--gray-light);
+}
+
+.collection-actions {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.action-text {
+    font-size: 1.1rem;
+    color: var(--warning-yellow);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.action-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.action-list li {
+    padding: 8px 0;
+    color: var(--gray-light);
+    font-size: 1rem;
+}
+
+.telegram-info {
+    background: rgba(0, 123, 255, 0.1);
+    border: 1px solid #007bff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.telegram-link-large {
+    font-size: 1.1rem;
+    margin: 0;
+    color: var(--gray-light);
+}
+
+.telegram-link-styled {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.telegram-link-styled:hover {
+    border-bottom-color: #007bff;
+    color: #0056b3;
+}
+
 /* Секция защиты */
 .protection-section {
     padding: 80px 0;
