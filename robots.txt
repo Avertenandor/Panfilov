@@ -1,0 +1,74 @@
+# Robots.txt для сайта предупреждения о мошенниках
+# Максимальная индексация для защиты людей
+
+User-agent: *
+Allow: /
+
+# Разрешаем всем поисковикам индексировать все страницы
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Специальные директивы для лучшей индексации
+Crawl-delay: 1
+
+# Указываем местоположение sitemap
+Sitemap: https://panfilovscam.nl/sitemap.xml
+
+# Для максимального охвата
+Host: panfilovscam.nl
+
+# Дополнительные директивы для русскоязычных поисковиков
+User-agent: Mail.RU_Bot
+Allow: /
+
+User-agent: Rambler
+Allow: /
+
+User-agent: Aport
+Allow: /
+
+User-agent: WebAlta
+Allow: /
+
+User-agent: Nigma.ru
+Allow: /
+
+# Разрешаем социальным ботам для лучшего распространения предупреждения
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: VKShare
+Allow: /
+
+User-agent: SkypeUriPreview
+Allow: /
+
+# Информация о контактах для связи с администратором
+# Contact: admin@panfilovscam.nl

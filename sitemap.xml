@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Главная страница -->
+  <url>
+    <loc>https://panfilovscam.nl/</loc>
+    <lastmod>2025-01-03T12:00:00+03:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <news:news>
+      <news:publication>
+        <news:name>АнтиСкам</news:name>
+        <news:language>ru</news:language>
+      </news:publication>
+      <news:publication_date>2025-01-03T12:00:00+03:00</news:publication_date>
+      <news:title>Сергей Панфилов и Зарема - МОШЕННИКИ | 45 млн украдено</news:title>
+      <news:keywords>мошенники, Панфилов, Зарема, финансовая пирамида, предупреждение</news:keywords>
+    </news:news>
+    <image:image>
+      <image:loc>https://panfilovscam.nl/preview-social.svg</image:loc>
+      <image:caption>Предупреждение о мошенниках Панфилове и Зареме</image:caption>
+      <image:title>МОШЕННИКИ: Панфилов и Зарема украли 45 млн рублей</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+
+  <!-- Альтернативные языковые версии -->
+  <url>
+    <loc>https://panfilovscam.nl/</loc>
+    <xhtml:link 
+       rel="alternate"
+       hreflang="ru"
+       href="https://panfilovscam.nl/" />
+    <xhtml:link 
+       rel="alternate"
+       hreflang="en"
+       href="https://panfilovscam.nl/?lang=en" />
+    <xhtml:link 
+       rel="alternate"
+       hreflang="x-default"
+       href="https://panfilovscam.nl/" />
+  </url>
+
+  <!-- Статичные ресурсы для индексации -->
+  <url>
+    <loc>https://panfilovscam.nl/preview-social.svg</loc>
+    <lastmod>2025-01-03T12:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://panfilovscam.nl/favicon.svg</loc>
+    <lastmod>2025-01-03T12:00:00+03:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <!-- CSS и JS для быстрой индексации -->
+  <url>
+    <loc>https://panfilovscam.nl/styles.css</loc>
+    <lastmod>2025-01-03T12:00:00+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://panfilovscam.nl/script.js</loc>
+    <lastmod>2025-01-03T12:00:00+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
