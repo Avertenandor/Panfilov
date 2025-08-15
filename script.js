@@ -324,7 +324,155 @@ function copyTelegramLink() {
     });
 }
 
+// Функции для модального окна МВД
+function openMVDModal() {
+    const modal = document.getElementById('mvdModal');
+    if (modal) {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Блокируем прокрутку фона
+    }
+}
+
+function closeMVDModal(event) {
+    const modal = document.getElementById('mvdModal');
+    if (modal && (event === undefined || event.target === modal || event.target.classList.contains('modal-close'))) {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto'; // Восстанавливаем прокрутку
+    }
+}
+
+// Закрытие модального окна по нажатию ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeMVDModal();
+    }
+});
+
+// Улучшенная функция для анимации кнопок
+function enhanceButtons() {
+    const buttons = document.querySelectorAll('.telegram-btn, .telegram-btn-large, .mvd-btn');
+    
+    buttons.forEach(button => {
+        // Добавляем эффект ripple при клике
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+        
+        // Добавляем эффект loading при нажатии на Telegram кнопки
+        if (button.classList.contains('telegram-btn') || button.classList.contains('telegram-btn-large')) {
+            button.addEventListener('click', function() {
+                const icon = this.querySelector('.btn-icon');
+                const originalIcon = icon.textContent;
+                icon.textContent = '⏳';
+                
+                setTimeout(() => {
+                    icon.textContent = originalIcon;
+                }, 1000);
+            });
+        }
+    });
+    
+    // CSS для эффекта ripple
+    const style = document.createElement('style');
+    style.textContent = `
+        .telegram-btn, .telegram-btn-large, .mvd-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .btn-icon {
+            transition: all 0.3s ease;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Функция для улучшения анимации счетчиков в модальном окне
+function animateModalStats() {
+    const modal = document.getElementById('mvdModal');
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'class' && modal.classList.contains('show')) {
+                // Анимируем появление элементов модального окна
+                const items = modal.querySelectorAll('.modal-info li');
+                items.forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateX(-20px)';
+                    setTimeout(() => {
+                        item.style.transition = 'all 0.3s ease';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    }, index * 100);
+                });
+            }
+        });
+    });
+    
+    if (modal) {
+        observer.observe(modal, { attributes: true });
+    }
+}
+
+// Добавляем все в инициализацию
+document.addEventListener('DOMContentLoaded', () => {
+    // Существующие функции...
+    animateCounters();
+    smoothScroll();
+    parallaxBackground();
+    animateOnScroll();
+    addNotificationStyles();
+    typewriterEffect();
+    addGlitchEffect();
+    warningBannerEffect();
+    
+    // Новые функции
+    enhanceButtons();
+    animateModalStats();
+    
+    // Добавление эффекта свечения при движении мыши
+    document.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        
+        document.documentElement.style.setProperty('--mouse-x', x);
+        document.documentElement.style.setProperty('--mouse-y', y);
+    });
+});
+
 // Экспорт функций для использования в HTML
 window.shareWarning = shareWarning;
 window.joinChat = joinChat;
 window.copyTelegramLink = copyTelegramLink;
+window.openMVDModal = openMVDModal;
+window.closeMVDModal = closeMVDModal;

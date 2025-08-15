@@ -532,6 +532,302 @@ body::before {
     color: #0056b3;
 }
 
+/* Стили для улучшенных кнопок */
+.telegram-btn, .telegram-btn-large {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #0088cc, #005f99);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.telegram-btn-large {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    min-width: 280px;
+    justify-content: center;
+}
+
+.telegram-btn:hover, .telegram-btn-large:hover {
+    background: linear-gradient(135deg, #0099dd, #0077bb);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 136, 204, 0.4);
+}
+
+.telegram-btn:active, .telegram-btn-large:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+}
+
+.mvd-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #dc3545, #a71e2a);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+    min-width: 280px;
+    justify-content: center;
+}
+
+.mvd-btn:hover {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4);
+}
+
+.btn-icon {
+    font-size: 1.2em;
+}
+
+.btn-text {
+    flex: 1;
+}
+
+.btn-arrow {
+    font-size: 1.1em;
+    transition: transform 0.3s ease;
+}
+
+.telegram-btn:hover .btn-arrow,
+.telegram-btn-large:hover .btn-arrow,
+.mvd-btn:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    border: 2px solid var(--warning-yellow);
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h2 {
+    color: var(--warning-yellow);
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--gray-light);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.modal-body {
+    padding: 20px 30px 30px;
+}
+
+.modal-warning {
+    display: flex;
+    gap: 15px;
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid var(--warning-yellow);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.warning-icon {
+    font-size: 2rem;
+    color: var(--warning-yellow);
+}
+
+.warning-text h3 {
+    color: var(--warning-yellow);
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.warning-text p {
+    color: var(--gray-light);
+    margin: 0;
+}
+
+.modal-info h4 {
+    color: var(--warning-yellow);
+    margin: 20px 0 10px 0;
+    font-size: 1.1rem;
+}
+
+.modal-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px 0;
+}
+
+.modal-info li {
+    padding: 5px 0;
+    color: var(--gray-light);
+}
+
+.timeline-info {
+    background: rgba(0, 123, 255, 0.1);
+    border: 1px solid #007bff;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.timeline-info h4 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.timeline-info p {
+    color: var(--gray-light);
+    margin-bottom: 0;
+}
+
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.modal-telegram-btn {
+    background: linear-gradient(135deg, #0088cc, #005f99);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.modal-telegram-btn:hover {
+    background: linear-gradient(135deg, #0099dd, #0077bb);
+    transform: translateY(-2px);
+}
+
+.modal-close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--gray-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-50px) scale(0.9); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10px;
+        max-height: 95vh;
+    }
+    
+    .modal-header, .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-actions {
+        gap: 12px;
+    }
+    
+    .telegram-btn-large, .mvd-btn {
+        min-width: auto;
+        width: 100%;
+    }
+}
+
 /* Секция защиты */
 .protection-section {
     padding: 80px 0;
