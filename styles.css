@@ -63,7 +63,24 @@ body::before {
     position: sticky;
     top: 0;
     z-index: 1000;
-    animation: warningPulse 2s ease-in-out infinite;
+}
+
+/* Плавная пульсация без агрессивного мигания */
+.warning-banner.gentle-pulse {
+    animation: gentle-pulse 4s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+    0%, 100% {
+        opacity: 0.9;
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 193, 7, 0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.005);
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+    }
 }
 
 @keyframes warningPulse {
@@ -305,55 +322,92 @@ body::before {
     line-height: 1.6;
 }
 
-/* Красные флаги */
-.red-flags {
-    padding: 80px 0;
-    background: rgba(220, 38, 38, 0.03);
+/* Бегущая строка с признаками мошенничества */
+.running-line-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    border-top: 3px solid var(--danger-red);
+    border-bottom: 3px solid var(--danger-red);
+    overflow: hidden;
 }
 
-.flags-list {
-    max-width: 800px;
+.running-line-container {
+    max-width: 1200px;
     margin: 0 auto;
+    text-align: center;
 }
 
-.flag-item {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    margin-bottom: 15px;
-    background: rgba(220, 38, 38, 0.05);
-    border-left: 4px solid var(--danger-red);
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    animation: slideInLeft 0.5s ease-out backwards;
+.running-line-title {
+    color: var(--danger-red);
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(220, 53, 69, 0.5);
 }
 
-.flag-item:nth-child(1) { animation-delay: 0.1s; }
-.flag-item:nth-child(2) { animation-delay: 0.2s; }
-.flag-item:nth-child(3) { animation-delay: 0.3s; }
-.flag-item:nth-child(4) { animation-delay: 0.4s; }
-.flag-item:nth-child(5) { animation-delay: 0.5s; }
-.flag-item:nth-child(6) { animation-delay: 0.6s; }
+.running-line-wrapper {
+    background: rgba(220, 53, 69, 0.1);
+    border: 2px solid var(--danger-red);
+    border-radius: 20px;
+    padding: 20px 0;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+}
 
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
+.running-line-content {
+    display: inline-block;
+    animation: scroll-left 120s linear infinite;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gray-light);
+    line-height: 1.6;
+    padding-left: 100%;
+}
+
+.warning-item {
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    font-weight: 700;
+}
+
+.separator {
+    color: var(--warning-yellow);
+    margin: 0 40px;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+/* Анимация бегущей строки оптимизированная для людей 65+ лет */
+@keyframes scroll-left {
+    0% {
         transform: translateX(0);
     }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
-.flag-item:hover {
-    background: rgba(220, 38, 38, 0.1);
-    transform: translateX(10px);
+/* Пауза при наведении для удобства чтения */
+.running-line-content:hover {
+    animation-play-state: paused;
 }
 
-.flag-icon {
-    font-size: 1.5rem;
-    margin-right: 15px;
+/* Адаптивность для бегущей строки */
+@media (max-width: 768px) {
+    .running-line-title {
+        font-size: 1.8rem;
+    }
+    
+    .running-line-content {
+        font-size: 1rem;
+        animation-duration: 100s;
+    }
+    
+    .separator {
+        margin: 0 25px;
+        font-size: 1.2rem;
+    }
 }
 
 /* Истории жертв */

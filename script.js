@@ -178,20 +178,13 @@ function addGlitchEffect() {
     console.log('Glitch effect initialized');
 }
 
-// Эффект мерцания для предупреждающего баннера
+// Плавная пульсация для предупреждающего баннера (без агрессивного мигания)
 function warningBannerEffect() {
     const banner = document.querySelector('.warning-banner');
     if (!banner) return;
     
-    let isVisible = true;
-    setInterval(() => {
-        if (Math.random() > 0.95) {
-            banner.style.opacity = isVisible ? '0.3' : '1';
-            setTimeout(() => {
-                banner.style.opacity = '1';
-            }, 100);
-        }
-    }, 3000);
+    // Добавляем CSS класс для плавной пульсации
+    banner.classList.add('gentle-pulse');
 }
 
 // Инициализация всех эффектов при загрузке страницы
