@@ -615,7 +615,7 @@ body::before {
 
 /* Стили для модального окна */
 .modal {
-    display: none;
+    display: none !important;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -625,13 +625,18 @@ body::before {
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
     animation: fadeIn 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal.show {
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    opacity: 1;
+    visibility: visible;
 }
 
 .modal-content {

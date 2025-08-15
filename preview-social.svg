@@ -1,0 +1,49 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1A1A" />
+      <stop offset="100%" style="stop-color:#333333" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Background pattern -->
+  <circle cx="100" cy="100" r="2" fill="#FF4A00" opacity="0.3"/>
+  <circle cx="1100" cy="100" r="2" fill="#FF4A00" opacity="0.3"/>
+  <circle cx="100" cy="530" r="2" fill="#FF4A00" opacity="0.3"/>
+  <circle cx="1100" cy="530" r="2" fill="#FF4A00" opacity="0.3"/>
+  
+  <!-- Main warning -->
+  <text x="600" y="100" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FF4A00" text-anchor="middle" filter="url(#glow)">🚨 МОШЕННИКИ</text>
+  
+  <!-- Names -->
+  <text x="600" y="160" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Сергей Панфилов &amp; Зарема</text>
+  
+  <!-- Stats box -->
+  <rect x="200" y="200" width="800" height="200" rx="20" fill="rgba(255, 74, 0, 0.1)" stroke="#FF4A00" stroke-width="2"/>
+  
+  <!-- Damage amount -->
+  <text x="600" y="250" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#FF0000" text-anchor="middle">💸 45 000 000 ₽</text>
+  <text x="600" y="290" font-family="Arial, sans-serif" font-size="24" fill="#FFFFFF" text-anchor="middle">украдено у пострадавших</text>
+  
+  <!-- Victims count -->
+  <text x="600" y="340" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#FF0000" text-anchor="middle">👥 3000+ жертв</text>
+  <text x="600" y="375" font-family="Arial, sans-serif" font-size="20" fill="#CCCCCC" text-anchor="middle">схема активна</text>
+  
+  <!-- Warning -->
+  <text x="600" y="450" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#FFFC47" text-anchor="middle">⚠️ НЕ СТАНЬТЕ СЛЕДУЮЩЕЙ ЖЕРТВОЙ</text>
+  
+  <!-- Call to action -->
+  <text x="600" y="500" font-family="Arial, sans-serif" font-size="24" fill="#00AAFF" text-anchor="middle">📱 Чат пострадавших: t.me/+BCX91JicBdMyYWU0</text>
+  
+  <!-- Site -->
+  <text x="600" y="580" font-family="Arial, sans-serif" font-size="20" fill="#888888" text-anchor="middle">panfilovscam.nl</text>
+</svg>
