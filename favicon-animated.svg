@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Анимированный фавикон с пульсацией -->
+  <rect width="128" height="128" rx="24" fill="#0F0F0F"/>
+  
+  <!-- Градиенты и эффекты -->
+  <defs>
+    <linearGradient id="pulseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FCD34D;stop-opacity:1">
+        <animate attributeName="stop-color" values="#FCD34D;#DC2626;#FCD34D" dur="2s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#DC2626;stop-opacity:1">
+        <animate attributeName="stop-color" values="#DC2626;#7F1D1D;#DC2626" dur="2s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <filter id="animatedGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur">
+        <animate attributeName="stdDeviation" values="2;5;2" dur="1.5s" repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <radialGradient id="bgPulse">
+      <stop offset="0%" style="stop-color:#DC2626;stop-opacity:0">
+        <animate attributeName="stop-opacity" values="0;0.3;0" dur="2s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#DC2626;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Пульсирующий фон -->
+  <circle cx="64" cy="64" r="64" fill="url(#bgPulse)">
+    <animate attributeName="r" values="30;50;30" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Основной треугольник с анимацией -->
+  <g transform="translate(64, 64)">
+    <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="1.5s" repeatCount="indefinite" additive="sum"/>
+    <path d="M0 -34 L30 22 L-30 22 Z" 
+          fill="none" 
+          stroke="url(#pulseGradient)" 
+          stroke-width="5" 
+          stroke-linejoin="round"
+          filter="url(#animatedGlow)"
+          transform="translate(-64, -64) translate(64, 54)"/>
+  </g>
+  
+  <!-- Мигающий восклицательный знак -->
+  <g>
+    <rect x="60" y="45" width="8" height="25" rx="2" fill="#FCD34D">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="64" cy="76" r="4" fill="#FCD34D">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="4;6;4" dur="1s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Вращающиеся угловые элементы -->
+  <g transform="translate(64, 64)">
+    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="20s" repeatCount="indefinite"/>
+    <circle cx="-50" cy="-50" r="2" fill="#DC2626" opacity="0.5"/>
+    <circle cx="50" cy="-50" r="2" fill="#DC2626" opacity="0.5"/>
+    <circle cx="-50" cy="50" r="2" fill="#DC2626" opacity="0.5"/>
+    <circle cx="50" cy="50" r="2" fill="#DC2626" opacity="0.5"/>
+  </g>
+  
+  <!-- Сканирующая линия -->
+  <rect x="0" y="0" width="128" height="2" fill="#FCD34D" opacity="0.3">
+    <animate attributeName="y" values="-2;128;-2" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite"/>
+  </rect>
+</svg>
