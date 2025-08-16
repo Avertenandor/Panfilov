@@ -137,28 +137,7 @@ function addNotificationStyles() {
     console.log('Notification styles loaded from CSS');
 }
 
-// Эффект печатающегося текста для заголовка
-function typewriterEffect() {
-    const dangerText = document.querySelector('.danger-text');
-    if (!dangerText) return;
-    
-    const text = dangerText.textContent;
-    dangerText.textContent = '';
-    dangerText.style.visibility = 'visible';
-    
-    let index = 0;
-    const speed = 100;
-    
-    function type() {
-        if (index < text.length) {
-            dangerText.textContent += text.charAt(index);
-            index++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    setTimeout(type, 500);
-}
+// Функция убрана - эффект печатающегося текста отключен
 
 // Добавление эффекта глитча при наведении на опасные элементы
 function addGlitchEffect() {
@@ -194,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     parallaxBackground();
     animateOnScroll();
     addNotificationStyles();
-    typewriterEffect();
+
     addGlitchEffect();
     warningBannerEffect();
     
@@ -227,6 +206,12 @@ console.log('%cПострадали? Присоединяйтесь к чату 
 function joinChat() {
     // Открываем реальный Telegram чат пострадавших
     window.open('https://t.me/+BCX91JicBdMyYWU0', '_blank');
+}
+
+// Функция для присоединения к чату выплат
+function joinPaymentsChat() {
+    // Открываем Telegram чат выплат пострадавшим
+    window.open('https://t.me/+oAHOynCQcNI1Nzky', '_blank');
 }
 
 // Функция для копирования ссылки на чат
@@ -332,6 +317,10 @@ function setupEventHandlers() {
                 e.preventDefault();
                 openTelegramChat(e.target);
                 break;
+            case 'telegram-payments':
+                e.preventDefault();
+                joinPaymentsChat();
+                break;
             case 'open-mvd-modal':
                 e.preventDefault();
                 openMVDModal();
@@ -387,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
     parallaxBackground();
     animateOnScroll();
     addNotificationStyles();
-    typewriterEffect();
+
     addGlitchEffect();
     warningBannerEffect();
     

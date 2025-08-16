@@ -60,7 +60,7 @@
     <meta name="telegram:channel" content="@panfilov_scam_alert">
     <meta property="tg:site_name" content="🚨 ЭКСТРЕННОЕ ПРЕДУПРЕЖДЕНИЕ">
     <meta property="tg:title" content="🔴 МОШЕННИКИ: Панфилов и Зарема | 45 млн украдено">
-    <meta property="tg:description" content="⚠️ ВНИМАНИЕ! Активная мошенническая схема!\n\n💰 45 000 000 ₽ украдено\n👥 3000+ пострадавших\n🚨 Схема работает!\n\n📱 Чат жертв: t.me/+BCX91JicBdMyYWU0">
+    <meta property="tg:description" content="⚠️ ВНИМАНИЕ! Активная мошенническая схема!\n\n💰 45 000 000 ₽ украдено\n👥 3000+ пострадавших\n🚨 Схема работает!\n\n📱 Основной чат: t.me/+BCX91JicBdMyYWU0\n💰 Чат выплат: t.me/+oAHOynCQcNI1Nzky">
     <meta property="tg:image" content="https://panfilovscam.nl/preview-social.svg">
     <meta property="article:author" content="Пострадавшие от Панфилова и Заремы">
     <meta property="article:published_time" content="2024-01-01T00:00:00+00:00">
@@ -367,6 +367,102 @@
     <!-- Основные стили -->
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Дополнительные стили для новых кнопок -->
+    <style>
+        /* Стили для группы кнопок Telegram */
+        .telegram-buttons-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        
+        @media (min-width: 768px) {
+            .telegram-buttons-group {
+                flex-direction: row;
+                gap: 16px;
+            }
+        }
+        
+        /* Стили для кнопки выплат */
+        .telegram-btn[data-action="telegram-payments"] {
+            background: linear-gradient(135deg, #22C55E, #16A34A) !important;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        }
+        
+        .telegram-btn[data-action="telegram-payments"]:hover {
+            background: linear-gradient(135deg, #16A34A, #15803D) !important;
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+        }
+        
+        /* Улучшенная мобильная адаптация */
+        @media (max-width: 480px) {
+            .telegram-btn {
+                font-size: 0.9rem !important;
+                padding: 12px 16px !important;
+                min-width: auto !important;
+                width: 100% !important;
+            }
+            
+            .telegram-btn .btn-text {
+                font-size: 0.85rem !important;
+            }
+            
+            .telegram-btn .btn-icon {
+                font-size: 1rem !important;
+            }
+            
+            .telegram-buttons-group {
+                gap: 10px;
+            }
+            
+            .collection-card {
+                padding: 25px 20px !important;
+            }
+            
+            .action-list li {
+                font-size: 0.9rem !important;
+            }
+        }
+        
+        /* Оптимизация для планшетов */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .telegram-btn {
+                flex: 1;
+                min-width: 0;
+            }
+        }
+        
+        /* Accessibility улучшения */
+        .telegram-btn:focus {
+            outline: 2px solid #0099dd;
+            outline-offset: 2px;
+        }
+        
+        .telegram-btn[data-action="telegram-payments"]:focus {
+            outline-color: #22C55E;
+        }
+        
+        /* Улучшение касания на мобильных */
+        @media (pointer: coarse) {
+            .telegram-btn {
+                min-height: 48px;
+                padding: 14px 20px !important;
+            }
+        }
+        
+        /* Стили для модального окна */
+        .modal-telegram-btn[data-action="telegram-payments"] {
+            background: linear-gradient(135deg, #22C55E, #16A34A) !important;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        }
+        
+        .modal-telegram-btn[data-action="telegram-payments"]:hover {
+            background: linear-gradient(135deg, #16A34A, #15803D) !important;
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+        }
+    </style>
 </head>
 <body>
     <!-- Предупреждающий баннер -->
@@ -513,13 +609,20 @@
                             </ul>
                             <div class="telegram-info">
                                 <p class="telegram-link-large">
-                                    🔗 <strong>Чат пострадавших:</strong>
+                                    🔗 <strong>Telegram каналы пострадавших:</strong>
                                 </p>
-                                <button class="telegram-btn" data-action="telegram-chat">
-                                    <span class="btn-icon">💬</span>
-                                    <span class="btn-text">Присоединиться к чату</span>
-                                    <span class="btn-arrow">→</span>
-                                </button>
+                                <div class="telegram-buttons-group">
+                                    <button class="telegram-btn" data-action="telegram-chat">
+                                        <span class="btn-icon">💬</span>
+                                        <span class="btn-text">Основной чат пострадавших</span>
+                                        <span class="btn-arrow">→</span>
+                                    </button>
+                                    <button class="telegram-btn" data-action="telegram-payments">
+                                        <span class="btn-icon">💰</span>
+                                        <span class="btn-text">Чат выплат пострадавшим</span>
+                                        <span class="btn-arrow">→</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -581,11 +684,18 @@
                     </div>
                 </div>
                 <div class="cta-buttons">
-                    <button class="btn btn-primary telegram-btn-large" data-action="telegram-chat">
-                        <span class="btn-icon">💬</span>
-                        <span class="btn-text">Присоединиться к Telegram чату</span>
-                        <span class="btn-arrow">→</span>
-                    </button>
+                    <div class="telegram-buttons-group" style="margin-bottom: 20px;">
+                        <button class="btn btn-primary telegram-btn-large" data-action="telegram-chat">
+                            <span class="btn-icon">💬</span>
+                            <span class="btn-text">Основной чат пострадавших</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+                        <button class="btn btn-primary telegram-btn-large" data-action="telegram-payments">
+                            <span class="btn-icon">💰</span>
+                            <span class="btn-text">Чат выплат пострадавшим</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+                    </div>
                     <button class="btn btn-secondary mvd-btn" data-action="open-mvd-modal">
                         <span class="btn-icon">⚖️</span>
                         <span class="btn-text">Подать заявление в МВД</span>
@@ -634,11 +744,17 @@
                     </div>
                 </div>
                 <div class="modal-actions">
-                    <button class="btn btn-primary modal-telegram-btn" data-action="telegram-chat">
-                        <span class="btn-icon">💬</span>
-                        <span class="btn-text">Присоединиться к чату пострадавших</span>
-                    </button>
-                    <button class="btn btn-secondary modal-close-btn" data-action="close-modal">
+                    <div class="telegram-buttons-group">
+                        <button class="btn btn-primary modal-telegram-btn" data-action="telegram-chat">
+                            <span class="btn-icon">💬</span>
+                            <span class="btn-text">Основной чат</span>
+                        </button>
+                        <button class="btn btn-primary modal-telegram-btn" data-action="telegram-payments">
+                            <span class="btn-icon">💰</span>
+                            <span class="btn-text">Чат выплат</span>
+                        </button>
+                    </div>
+                    <button class="btn btn-secondary modal-close-btn" data-action="close-modal" style="margin-top: 16px;">
                         <span class="btn-text">Понятно, жду готовых документов</span>
                     </button>
                 </div>
