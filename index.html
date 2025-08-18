@@ -366,6 +366,7 @@
     
     <!-- Основные стили -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="victims-styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     
     <!-- Дополнительные стили для новых кнопок -->
@@ -498,8 +499,8 @@
                     <div class="stat-label">Миллионов ₽ украдено</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-count="0">0</div>
-                    <div class="stat-label">Возвращённых средств</div>
+                    <div class="stat-number" data-count="1700">1700</div>
+                    <div class="stat-label">Возвращённых средств ($)</div>
                 </div>
             </div>
         </div>
@@ -626,6 +627,66 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- РЕАЛЬНЫЕ ПОСТРАДАВШИЕ -->
+    <section class="real-victims-section">
+        <div class="container">
+            <h2 class="section-title">🚨 РЕАЛЬНЫЕ ПОСТРАДАВШИЕ</h2>
+            <div class="victims-description">
+                <p class="victims-intro">
+                    💔 <strong>Эти люди потеряли свои личные деньги</strong> в мошеннической схеме Сергея Панфилова и Заремы. 
+                    С любым пострадавшим вы можете связаться напрямую и получить полное понимание происходящего.
+                </p>
+            </div>
+            
+            <div class="victims-carousel-container">
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" data-action="prev-victims">
+                        <span class="btn-icon">←</span>
+                        <span class="btn-text">Предыдущие</span>
+                    </button>
+                    <div class="carousel-indicator">
+                        <span class="current-page">1</span> / <span class="total-pages">15</span>
+                    </div>
+                    <button class="carousel-btn next-btn" data-action="next-victims">
+                        <span class="btn-text">Следующие</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                </div>
+                
+                <div class="victims-carousel">
+                    <div class="victims-grid" id="victimsGrid">
+                        <!-- Карточки пострадавших будут добавлены через JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="carousel-mobile-controls">
+                    <button class="mobile-btn" data-action="prev-victims">←</button>
+                    <div class="mobile-indicator">
+                        <span class="mobile-current">1</span> / <span class="mobile-total">15</span>
+                    </div>
+                    <button class="mobile-btn" data-action="next-victims">→</button>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <p class="contact-text">
+                    💬 <strong>Хотите связаться с конкретным пострадавшим?</strong> 
+                    Нажмите на карточку для перехода в Telegram чат.
+                </p>
+                <div class="contact-buttons">
+                    <button class="contact-btn primary" data-action="telegram-chat">
+                        <span class="btn-icon">💬</span>
+                        <span class="btn-text">Основной чат пострадавших</span>
+                    </button>
+                    <button class="contact-btn secondary" data-action="telegram-payments">
+                        <span class="btn-icon">💰</span>
+                        <span class="btn-text">Чат выплат</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -771,5 +832,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="victims-carousel.js"></script>
 </body>
 </html>
